@@ -133,14 +133,13 @@ const ContactMe = () => {
           {/* Left Side - Image and Text */}
           <div className="flex-1 lg:max-w-lg">
             {/* Image Placeholder */}
-            <div className="w-full h-80 lg:h-[32rem] bg-gray-200 border-4 border-blue-800 flex items-center justify-center mb-8">
-              <div className="text-blue-800 text-center">
-                <svg className="w-16 h-16 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-                </svg>
-                <p className="text-blue-800 font-medium opacity-50">Image Placeholder</p>
-              </div>
-            </div>
+            <div className="w-full h-80 lg:h-[32rem] bg-gray-200 border-4 border-blue-800 overflow-hidden mb-8">
+  <img 
+    src="/paramsh2.jpg" 
+    alt="Description of your image"
+    className="w-full h-full object-cover"
+  />
+</div>
             
             {/* Text Content */}
             <div className="space-y-6">
