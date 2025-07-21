@@ -1,199 +1,237 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { 
+  User, 
+  Briefcase, 
+  FileText, 
+  Mail, 
+  Menu, 
+  X, 
+  Award,
+  FolderOpen
+} from 'lucide-react'
+import { IoHomeOutline } from "react-icons/io5";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      })
+    // If we're already on the home page, just scroll
+    if (location.pathname === '/') {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        })
+      }
+    } else {
+      // If we're on another page, navigate to home first, then scroll
+      navigate('/')
+      
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId)
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          })
+        }
+      }, 300) // Adjust timeout as needed
     }
     // Close mobile menu after clicking
     setIsOpen(false)
   }
 
   return (
-    <div className="p-2 md:p-4">
-      <nav className="flex items-center justify-between px-4 md:px-8 py-4 md:py-6 bg-blue-700 mx-2 md:mx-4 mt-2 md:mt-4">
-        {/* Logo Section */}
-        <div className="flex items-center">
-          {/* Decorative dots - hidden on mobile */}
-          <div className="hidden sm:flex flex-col space-y-1 mr-4">
-            <div className="flex space-x-1">
-              <div className="w-1 h-1 bg-white rounded-full opacity-60"></div>
-              <div className="w-1 h-1 bg-white rounded-full opacity-40"></div>
-            </div>
-            <div className="flex space-x-1">
-              <div className="w-1 h-1 bg-white rounded-full opacity-80"></div>
-              <div className="w-1 h-1 bg-white rounded-full opacity-30"></div>
-              <div className="w-1 h-1 bg-white rounded-full opacity-50"></div>
-            </div>
-            <div className="flex space-x-1">
-              <div className="w-1 h-1 bg-white rounded-full opacity-70"></div>
-            </div>
-          </div>
-                        
-          {/* Logo and Text */}
+    <>
+      <div className="p-2 md:p-4">
+        <nav className="flex items-center justify-between px-4 md:px-8 py-4 md:py-6 bg-blue-700 mx-2 md:mx-4 mt-2 md:mt-4">
+          {/* Logo Section */}
           <div className="flex items-center">
-            <Link to="/" className="hover:opacity-80 transition-opacity duration-200">
-              <div className="bg-white px-2 md:px-3 py-1 md:py-2 mr-2 md:mr-4">
-                <span className="text-blue-700 font-black text-lg md:text-xl">PS</span>
+            {/* Decorative dots - hidden on mobile */}
+            <div className="hidden sm:flex flex-col space-y-1 mr-4">
+              <div className="flex space-x-1">
+                <div className="w-1 h-1 bg-white rounded-full opacity-60"></div>
+                <div className="w-1 h-1 bg-white rounded-full opacity-40"></div>
               </div>
-            </Link>
-            <div className="flex flex-col">
-              <span className="text-white text-xs md:text-sm font-black tracking-wider">PARAM</span>
-              <span className="text-white text-xs md:text-sm font-black tracking-wider">SHUKLA</span>
+              <div className="flex space-x-1">
+                <div className="w-1 h-1 bg-white rounded-full opacity-80"></div>
+                <div className="w-1 h-1 bg-white rounded-full opacity-30"></div>
+                <div className="w-1 h-1 bg-white rounded-full opacity-50"></div>
+              </div>
+              <div className="flex space-x-1">
+                <div className="w-1 h-1 bg-white rounded-full opacity-70"></div>
+              </div>
+            </div>
+                          
+            {/* Logo and Text */}
+            <div className="flex items-center">
+              <Link to="/" className="hover:opacity-80 transition-opacity duration-200">
+                <div className="bg-white px-2 md:px-3 py-1 md:py-2 mr-2 md:mr-4">
+                  <span className="text-blue-700 font-black text-lg md:text-xl">PS</span>
+                </div>
+              </Link>
+              <div className="flex flex-col">
+                <span className="text-white text-xs md:text-sm font-black tracking-wider">PARAM</span>
+                <span className="text-white text-xs md:text-sm font-black tracking-wider">SHUKLA</span>
+              </div>
             </div>
           </div>
-        </div>
-                  
-        {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center space-x-10">
-          <a href="#" className="flex items-center space-x-2 text-white text-sm font-bold tracking-wider hover:opacity-80 transition-opacity">
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-            </svg>
-            <span>ABOUT</span>
-          </a>
-          <button 
-            onClick={() => scrollToSection('projects')}
-            className="flex items-center space-x-2 text-white text-sm font-bold tracking-wider hover:opacity-80 transition-opacity cursor-pointer"
-          >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-            </svg>
-            <span>PROJECTS</span>
-          </button>
-          <button 
-            onClick={() => scrollToSection('work')}
-            className="flex items-center space-x-2 text-white text-sm font-bold tracking-wider hover:opacity-80 transition-opacity cursor-pointer"
-          >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd" />
-              <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
-            </svg>
-            <span>WORK</span>
-          </button>
-          <Link to="/resume" className="flex items-center space-x-2 text-white text-sm font-bold tracking-wider hover:opacity-80 transition-opacity">
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clipRule="evenodd" />
-            </svg>
-            <span>RESUME</span>
-          </Link>
-          <a href="#" className="flex items-center space-x-2 text-white text-sm font-bold tracking-wider hover:opacity-80 transition-opacity">
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-            </svg>
-            <span>MINIMAL</span>
-          </a>
-        </div>
-                  
-        {/* Desktop Get In Touch Button & Mobile Menu Button */}
-        <div className="flex items-center">
-          <Link 
-            to="/contactme"
-            className="hidden md:flex items-center space-x-2 bg-white hover:bg-gray-100 text-blue-700 px-6 py-2 font-black text-sm tracking-wider transition-colors"
-          >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-            </svg>
-            <span>GET IN TOUCH</span>
-          </Link>
-          
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden text-white p-1"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg 
-              className="w-6 h-6" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              {isOpen ? (
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M6 18L18 6M6 6l12 12" 
-                />
-              ) : (
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M4 6h16M4 12h16M4 18h16" 
-                />
-              )}
-            </svg>
-          </button>
-        </div>
-      </nav>
-      
-      {/* Mobile Menu Dropdown */}
-      {isOpen && (
-        <div className="md:hidden mx-2 mt-2 bg-blue-700 overflow-hidden">
-          <div className="px-4 py-2 space-y-2">
-            <a href="#" className="w-full flex items-center space-x-3 text-white text-sm font-bold tracking-wider py-2 hover:opacity-80 transition-opacity border-b border-blue-600">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-              </svg>
+                    
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex items-center space-x-10">
+            <Link to="/" className="flex items-center space-x-2 text-white text-sm font-bold tracking-wider hover:opacity-80 transition-opacity">
+              <IoHomeOutline className="w-4 h-4" />
+              <span>HOME</span>
+            </Link>
+            <a href="#" className="flex items-center space-x-2 text-white text-sm font-bold tracking-wider hover:opacity-80 transition-opacity">
+              <User className="w-4 h-4" />
               <span>ABOUT</span>
             </a>
             <button 
               onClick={() => scrollToSection('projects')}
-              className="w-full flex items-center space-x-3 text-white text-sm font-bold tracking-wider py-2 hover:opacity-80 transition-opacity border-b border-blue-600"
+              className="flex items-center space-x-2 text-white text-sm font-bold tracking-wider hover:opacity-80 transition-opacity cursor-pointer"
             >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-              </svg>
+              <FolderOpen className="w-4 h-4" />
               <span>PROJECTS</span>
             </button>
             <button 
               onClick={() => scrollToSection('work')}
-              className="w-full flex items-center space-x-3 text-white text-sm font-bold tracking-wider py-2 hover:opacity-80 transition-opacity border-b border-blue-600"
+              className="flex items-center space-x-2 text-white text-sm font-bold tracking-wider hover:opacity-80 transition-opacity cursor-pointer"
             >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd" />
-                <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
-              </svg>
+              <Briefcase className="w-4 h-4" />
               <span>WORK</span>
             </button>
-            <Link to="/resume" className="w-full flex items-center space-x-3 text-white text-sm font-bold tracking-wider py-2 hover:opacity-80 transition-opacity border-b border-blue-600">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clipRule="evenodd" />
-              </svg>
+            <Link to="/resume" className="flex items-center space-x-2 text-white text-sm font-bold tracking-wider hover:opacity-80 transition-opacity">
+              <FileText className="w-4 h-4" />
               <span>RESUME</span>
             </Link>
-            <a href="#" className="w-full flex items-center space-x-3 text-white text-sm font-bold tracking-wider py-2 hover:opacity-80 transition-opacity border-b border-blue-600">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
+            <Link href="/minimal" className="flex items-center space-x-2 text-white text-sm font-bold tracking-wider hover:opacity-80 transition-opacity">
+              <FileText className="w-4 h-4" />
               <span>MINIMAL</span>
+            </Link>
+          </div>
+                    
+          {/* Desktop Get In Touch Button & Mobile Menu Button */}
+          <div className="flex items-center">
+            <Link 
+              to="/contactme"
+              className="hidden md:flex items-center space-x-2 bg-white hover:bg-gray-100 text-blue-700 px-6 py-2 font-black text-sm tracking-wider transition-colors"
+            >
+              <Mail className="w-4 h-4" />
+              <span>GET IN TOUCH</span>
+            </Link>
+            
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden text-white p-1"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+          </div>
+        </nav>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+      
+      {/* Mobile Menu Sliding Panel */}
+      <div 
+        className={`fixed bottom-0 left-0 right-0 bg-blue-700 transform transition-transform duration-300 ease-in-out z-50 md:hidden ${
+          isOpen ? 'translate-y-0' : 'translate-y-full'
+        }`}
+      >
+        <div className="px-6 py-6">
+          {/* Menu Header */}
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-white text-lg font-bold tracking-wider">MENU</h3>
+            <button 
+              onClick={() => setIsOpen(false)}
+              className="text-white p-1 hover:opacity-80"
+              aria-label="Close menu"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+          
+          {/* Menu Items */}
+          <div className="space-y-4">
+            <Link
+              to="/" 
+              className="flex items-center space-x-4 text-white text-base font-bold tracking-wider py-3 hover:opacity-80 transition-opacity border-b border-blue-600"
+              onClick={() => setIsOpen(false)}
+            >
+              <IoHomeOutline className="w-5 h-5" />
+              <span>HOME</span>
+            </Link>
+            <a 
+              href="#" 
+              className="flex items-center space-x-4 text-white text-base font-bold tracking-wider py-3 hover:opacity-80 transition-opacity border-b border-blue-600"
+              onClick={() => setIsOpen(false)}
+            >
+              <User className="w-5 h-5" />
+              <span>ABOUT</span>
             </a>
-            <div className="pt-2 pb-2">
-              <Link 
-                to="/contactme"
-                className="w-full flex items-center justify-center space-x-2 bg-white hover:bg-gray-100 text-blue-700 px-6 py-2 font-black text-sm tracking-wider transition-colors"
-              >
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                </svg>
-                <span>GET IN TOUCH</span>
-              </Link>
-            </div>
+            <button 
+              onClick={() => scrollToSection('projects')}
+              className="w-full flex items-center space-x-4 text-white text-base font-bold tracking-wider py-3 hover:opacity-80 transition-opacity border-b border-blue-600"
+            >
+              <FolderOpen className="w-5 h-5" />
+              <span>PROJECTS</span>
+            </button>
+            <button 
+              onClick={() => scrollToSection('work')}
+              className="w-full flex items-center space-x-4 text-white text-base font-bold tracking-wider py-3 hover:opacity-80 transition-opacity border-b border-blue-600"
+            >
+              <Briefcase className="w-5 h-5" />
+              <span>WORK</span>
+            </button>
+            <Link 
+              to="/resume" 
+              className="flex items-center space-x-4 text-white text-base font-bold tracking-wider py-3 hover:opacity-80 transition-opacity border-b border-blue-600"
+              onClick={() => setIsOpen(false)}
+            >
+              <FileText className="w-5 h-5" />
+              <span>RESUME</span>
+            </Link>
+            <Link 
+              to="/minimal" 
+              className="flex items-center space-x-4 text-white text-base font-bold tracking-wider py-3 hover:opacity-80 transition-opacity border-b border-blue-600"
+              onClick={() => setIsOpen(false)}
+            >
+              <FileText className="w-5 h-5" />
+              <span>MINIMAL</span>
+            </Link>
+          </div>
+          
+          {/* Get In Touch Button */}
+          <div className="pt-6">
+            <Link 
+              to="/contactme"
+              className="w-full flex items-center justify-center space-x-3 bg-white hover:bg-gray-100 text-blue-700 px-6 py-4 font-black text-base tracking-wider transition-colors rounded-sm"
+              onClick={() => setIsOpen(false)}
+            >
+              <Mail className="w-5 h-5" />
+              <span>GET IN TOUCH</span>
+            </Link>
           </div>
         </div>
-      )}
-    </div>
+      </div>
+    </>
   )
 }
 

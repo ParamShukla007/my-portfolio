@@ -91,7 +91,7 @@ const WorkCard = () => {
               ? 'opacity-100 translate-y-0 scale-100' 
               : 'opacity-0 translate-y-16 scale-90'
           }`}>
-            WORK EXPERIENCE
+            WHERE I'VE MADE MY MARK
           </h2>
           
           {/* Animated Subtitle */}
@@ -100,7 +100,7 @@ const WorkCard = () => {
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-12'
           }`}>
-            Professional journey and achievements
+            Building impactful solutions and learning from every opportunity
           </p>
         </div>
 

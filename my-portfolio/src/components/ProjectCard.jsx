@@ -88,10 +88,10 @@ const ProjectCard = () => {
         {/* Header - Left aligned */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-6xl font-black text-white mb-4">
-            FEATURED WORKS
+            PROJECTS I'VE SHIPPED
           </h2>
           <p className="text-white font-medium text-lg mb-2">
-            Explore my latest creative projects
+            Ideas I've transformed into working applications
           </p>
           <div className="inline-flex items-center gap-2 border border-white/30 px-4 py-2 animate-[pulse_3s_ease-in-out_infinite]">
             <svg 

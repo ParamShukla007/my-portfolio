@@ -5,9 +5,30 @@ import WorkCard from '../components/WorkCard'
 import SkillCard from '../components/SkillCard'
 import EducationCard from '../components/EducationCard'
 import Footer from '../components/Footer'
+import AboutCard from '../components/AboutCard'
+import Start from '../components/Start'
 
 const Home = () => {
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [fadeOut, setFadeOut] = useState(false)
+
+  useEffect(() => {
+    // Show animation for 5 seconds before starting fade out
+    const fadeTimer = setTimeout(() => {
+      setFadeOut(true);
+    }, 4000);
+
+    // Complete loading 0.5 seconds after fade starts
+    const loadTimer = setTimeout(() => {
+      setIsLoading(false);
+    }, 4500);
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(loadTimer);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,8 +69,14 @@ const Home = () => {
 
   return (
     <>
-    <Navbar />
-    <div className="min-h-screen bg-white p-4 md:p-8 max-w-full overflow-x-hidden">
+    {isLoading ? (
+      <Start fadeOut={fadeOut} />
+    ) : (
+      <>
+        <Navbar />
+        <div className="min-h-screen bg-white p-4 md:p-8 max-w-full overflow-x-hidden">
+          <AboutCard />
+
       <SkillCard />
       
       {/* Work Section */}
@@ -88,7 +115,8 @@ const Home = () => {
       )}
     </div>
     <Footer />
-    
+        </>
+      )}
     </>
   )
 }

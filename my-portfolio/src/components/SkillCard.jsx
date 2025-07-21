@@ -10,6 +10,7 @@ import { FaDatabase } from 'react-icons/fa'
 import { VscVscode } from "react-icons/vsc"
 import { GrMysql } from "react-icons/gr";
 import { FaJava } from "react-icons/fa";
+
 const SkillCard = () => {
   const [isVisible, setIsVisible] = useState(false)
   const [titleVisible, setTitleVisible] = useState(false)
@@ -92,16 +93,16 @@ const SkillCard = () => {
             ? 'opacity-100 translate-y-0 scale-100' 
             : 'opacity-0 translate-y-16 scale-90'
         }`}>
-          SKILL SET
+          SKILL WALL
         </h2>
         
         {/* Animated Subtitle */}
-        <p className={`text-blue-600 font-medium text-base sm:text-lg md:text-xl lg:text-2xl transition-all duration-1300 ease-out transform ${
+        <p className={`text-blue-700 font-medium text-base sm:text-lg md:text-xl lg:text-2xl transition-all duration-1300 ease-out transform ${
           subtitleVisible 
             ? 'opacity-100 translate-y-0' 
             : 'opacity-0 translate-y-12'
         }`}>
-          My technology stack and expertise
+          Skiils that I have built brick by brick 
         </p>
       </div>
 
@@ -123,7 +124,7 @@ const SkillCard = () => {
               }`}
               style={{
                 aspectRatio: '1/1',
-                minHeight: window.innerWidth < 640 ? '120px' : '140px',
+                minHeight: '80px',
                 transitionDelay: `${200 + (skillIndex * 60)}ms` // Staggered animation delay with base delay
               }}
             >
@@ -142,10 +143,10 @@ const SkillCard = () => {
               <div className="relative w-full h-full flex flex-col items-center justify-center text-center p-1 sm:p-2 md:p-3 transition-all duration-300 ease-out group-hover:translate-y-0.5">
                 {/* Skill Icon */}
                 {skill.icon && (
-                  <skill.icon className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mb-3 text-blue-800 transition-all duration-300 ease-out group-hover:text-blue-900 group-hover:scale-110" />
+                  <skill.icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 mb-1 sm:mb-2 md:mb-3 text-blue-800 transition-all duration-300 ease-out group-hover:text-blue-900 group-hover:scale-110" />
                 )}
                 {/* Skill Text */}
-                <span className="text-blue-800 text-xs sm:text-sm md:text-base lg:text-lg font-bold leading-tight break-words hyphens-auto transition-all duration-300 ease-out group-hover:text-blue-900 group-hover:scale-95">
+                <span className="text-blue-800 text-xs sm:text-sm md:text-base lg:text-lg font-bold leading-tight break-words hyphens-auto transition-all duration-300 ease-out group-hover:text-blue-900 group-hover:scale-95 px-1">
                   {skill.name}
                 </span>
               </div>
