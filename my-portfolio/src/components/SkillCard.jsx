@@ -1,5 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react'
-
+import { 
+  SiC, SiOpenjdk, SiMysql, SiPython, SiJavascript,
+  SiNodedotjs, SiExpress, SiMongodb, SiSpringboot,
+  SiReact, SiHtml5, SiCss3, SiTailwindcss,
+  SiDocker, SiGit, SiGithub, SiVisualstudiocode, SiPostman,
+  SiThymeleaf, SiSpringsecurity, SiMongoose 
+} from 'react-icons/si'
+import { FaDatabase } from 'react-icons/fa'
+import { VscVscode } from "react-icons/vsc"
+import { GrMysql } from "react-icons/gr";
+import { FaJava } from "react-icons/fa";
 const SkillCard = () => {
   const [isVisible, setIsVisible] = useState(false)
   const [titleVisible, setTitleVisible] = useState(false)
@@ -9,13 +19,33 @@ const SkillCard = () => {
 
   const allSkills = [
     // Languages
-    "C", "Java", "SQL", "Python", "JavaScript",
-    // Frameworks & Libraries  
-    "Node.js", "Express.js", "Mongoose", "Spring Boot", "Spring Security", "Spring Data JPA", "React.js","HTML5", "CSS3", "Tailwind CSS", "Thymeleaf",
+    { name: "", icon: SiC },
+    { name: "Java", icon: FaJava },
+    { name: "SQL", icon: GrMysql },
+    { name: "Python", icon: SiPython },
+    { name: "JavaScript", icon: SiJavascript },
+    // Frameworks & Libraries
+    { name: "Node.js", icon: SiNodedotjs },
+    { name: "Express.js", icon: SiExpress },
+    { name: "Mongoose", icon: SiMongoose  },
+    { name: "Spring Boot", icon: SiSpringboot },
+    { name: "Spring Security", icon: SiSpringsecurity },
+    { name: "Spring Data JPA", icon: SiSpringboot },
+    { name: "React.js", icon: SiReact },
+    { name: "HTML5", icon: SiHtml5 },
+    { name: "CSS3", icon: SiCss3 },
+    { name: "Tailwind CSS", icon: SiTailwindcss },
+    { name: "Thymeleaf", icon: SiThymeleaf },
     // Database Systems
-    "MongoDB", "MySQL",
+    { name: "MongoDB", icon: SiMongodb },
+    { name: "MySQL", icon: GrMysql },
     // Tools & Technologies
-    "Docker", "JDBC", "Git", "GitHub", "VS Code", "Postman"
+    { name: "Docker", icon: SiDocker },
+    { name: "JDBC", icon: FaDatabase },
+    { name: "Git", icon: SiGit },
+    { name: "GitHub", icon: SiGithub },
+    { name: "VS Code", icon: VscVscode },
+    { name: "Postman", icon: SiPostman }
   ]
 
   useEffect(() => {
@@ -92,8 +122,8 @@ const SkillCard = () => {
                   : 'opacity-0 translate-y-12 scale-90 rotate-2'
               }`}
               style={{
-                aspectRatio: window.innerWidth < 640 ? '1/1' : '1.2/1',
-                minHeight: window.innerWidth < 640 ? '60px' : '80px',
+                aspectRatio: '1/1',
+                minHeight: window.innerWidth < 640 ? '120px' : '140px',
                 transitionDelay: `${200 + (skillIndex * 60)}ms` // Staggered animation delay with base delay
               }}
             >
@@ -109,10 +139,14 @@ const SkillCard = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
 
               {/* Skill Content */}
-              <div className="relative w-full h-full flex items-center justify-center text-center p-1 sm:p-2 md:p-3 transition-all duration-300 ease-out group-hover:translate-y-0.5">
+              <div className="relative w-full h-full flex flex-col items-center justify-center text-center p-1 sm:p-2 md:p-3 transition-all duration-300 ease-out group-hover:translate-y-0.5">
+                {/* Skill Icon */}
+                {skill.icon && (
+                  <skill.icon className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mb-3 text-blue-800 transition-all duration-300 ease-out group-hover:text-blue-900 group-hover:scale-110" />
+                )}
                 {/* Skill Text */}
                 <span className="text-blue-800 text-xs sm:text-sm md:text-base lg:text-lg font-bold leading-tight break-words hyphens-auto transition-all duration-300 ease-out group-hover:text-blue-900 group-hover:scale-95">
-                  {skill}
+                  {skill.name}
                 </span>
               </div>
 

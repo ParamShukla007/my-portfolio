@@ -1,8 +1,8 @@
 import { Github, Linkedin, MessageCircle, Phone, Mail, MapPin, Heart } from 'lucide-react';
 
-export default function VintageFooter() {
+export default function Footer() {
   return (
-    <footer className="bg-black text-white py-16 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] ">
+    <footer className="bg-black text-white py-16 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-16">
       <div className="max-w-7xl mx-auto">
         {/* Centered Contact Information at Top */}
         <div className="text-center mt-32 mb-24 space-y-6">
@@ -18,8 +18,8 @@ export default function VintageFooter() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Explore Section */}
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-green-400">Explore</h3>
-            <nav className="space-y-3">
+            <h3 className="text-xl font-bold mb-6 text-white tracking-wider" style={{ fontFamily: 'Peter Sans, sans-serif' }}>EXPLORE</h3>
+            <nav className="space-y-3" style={{ fontFamily: 'Peter Sans, sans-serif' }}>
               <a href="#" className="block text-gray-300 hover:text-white transition-colors duration-300">Home</a>
               <a href="#" className="block text-gray-300 hover:text-white transition-colors duration-300">About</a>
               <a href="#" className="block text-gray-300 hover:text-white transition-colors duration-300">Projects</a>
@@ -30,7 +30,7 @@ export default function VintageFooter() {
 
           {/* Follow Me Section */}
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-cyan-400">Follow Me</h3>
+            <h3 className="text-xl font-bold mb-6 text-white tracking-wider" style={{ fontFamily: 'Peter Sans, sans-serif' }}>FOLLOW ME</h3>
             <div className="space-y-3">
               <a href="#" className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-300">
                 <Github size={20} />
@@ -59,8 +59,8 @@ export default function VintageFooter() {
 
           {/* Your Session Section */}
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-green-400">Your Session</h3>
-            <div className="space-y-3 text-sm">
+            <h3 className="text-xl font-bold mb-6 text-white tracking-wider" style={{ fontFamily: 'Peter Sans, sans-serif' }}>YOUR SESSION</h3>
+            <div className="space-y-3 text-sm" style={{ fontFamily: 'Peter Sans, sans-serif' }}>
               <div className="flex justify-between">
                 <span className="text-gray-400">Visitor</span>
                 <span className="text-white">#390</span>
@@ -81,15 +81,17 @@ export default function VintageFooter() {
                 <span className="text-sm">Like this site</span>
               </button>
               
-              <div className="bg-gray-900 border border-cyan-400 rounded-lg p-4">
-                <div className="text-cyan-400 font-semibold mb-1">Ready to Collaborate?</div>
-                <div className="text-xs text-gray-300 mb-3">Let's build something cool!</div>
-                <button className="text-cyan-400 hover:text-cyan-300 transition-colors duration-300">
-                  <svg className="w-4 h-4 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
+              <a href="/contactme" className="block">
+                <div className="bg-white border border-black rounded-lg p-4 hover:bg-gray-50 transition-all duration-300">
+                  <div className="text-black font-semibold mb-1">Ready to Collaborate?</div>
+                  <div className="text-xs text-gray-600 mb-3">Let's build something cool!</div>
+                  <div className="text-black transition-colors duration-300">
+                    <svg className="w-4 h-4 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -98,7 +100,7 @@ export default function VintageFooter() {
         <div className="pt-12">
           <div className="text-center">
             <div className="flex items-center justify-center">
-              <div className="text-12xl sm:text-[12rem] md:text-[16rem] lg:text-[20rem] xl:text-[24rem] font-bold tracking-wider text-center" style={{ fontFamily: 'Tahoma, sans-serif', fontWeight: 'bold' }}>PARAM</div>
+              <div className="text-12xl sm:text-[12rem] md:text-[16rem] lg:text-[20rem] xl:text-[24rem] font-bold tracking-wider text-center" style={{ fontFamily: 'Peter Sans, sans-serif', fontWeight: 'bold' }}>PARAM</div>
             </div>
           </div>
           

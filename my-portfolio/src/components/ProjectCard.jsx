@@ -90,9 +90,22 @@ const ProjectCard = () => {
           <h2 className="text-4xl md:text-6xl font-black text-white mb-4">
             FEATURED WORKS
           </h2>
-          <p className="text-white font-medium text-lg mb-4">
+          <p className="text-white font-medium text-lg mb-2">
             Explore my latest creative projects
           </p>
+          <div className="inline-flex items-center gap-2 border border-white/30 px-4 py-2 animate-[pulse_3s_ease-in-out_infinite]">
+            <svg 
+              className="w-5 h-5 text-blue-200" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+            </svg>
+            <p className="text-blue-200 text-base italic">
+              Hover over the cards to reveal projects
+            </p>
+          </div>
         </div>
 
         {/* Cards Grid */}
@@ -115,11 +128,12 @@ const ProjectCard = () => {
               {/* Main Card */}
               <div 
                 className={`${card.bgColor} rounded-none p-6 md:p-8 lg:p-12 ${card.isBlue ? 'text-white border-2 border-white' : 'text-blue-800'} 
-                  relative overflow-visible group-hover:translate-x-1 group-hover:-translate-y-1 
-                  w-full max-w-none animate-on-scroll transform 
+                  relative overflow-visible
+                  w-full max-w-none transform 
                   transition-all duration-700 ease-out
                   ${index % 2 === 0 ? '-translate-x-3/4' : 'translate-x-3/4'} 
-                  ${animateCards ? 'translate-x-0 opacity-100' : 'opacity-85 hover:opacity-90'}`}
+                  group-hover:translate-x-0 group-hover:translate-y-0
+                  opacity-100 group-hover:opacity-100`}
                 style={{
                   minHeight: '400px',
                   boxShadow: card.isBlue 

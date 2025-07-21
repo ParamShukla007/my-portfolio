@@ -47,8 +47,9 @@ const Home = () => {
   }
 
   return (
+    <>
+    <Navbar />
     <div className="min-h-screen bg-white p-4 md:p-8 max-w-full overflow-x-hidden">
-      <Navbar />
       <SkillCard />
       
       {/* Work Section */}
@@ -62,9 +63,6 @@ const Home = () => {
       </div>
       
       <EducationCard/>
-      <div className='bg-black'>
-        <Footer />
-      </div>
       {/* Scroll to Top Button */}
       {showScrollTop && (
         <button
@@ -89,6 +87,9 @@ const Home = () => {
         </button>
       )}
     </div>
+    <Footer />
+    
+    </>
   )
 }
 

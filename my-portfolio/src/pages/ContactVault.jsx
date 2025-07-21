@@ -1,28 +1,49 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
-
+import Footer from "../components/Footer";
 const ContactVault = () => {
     const navigate = useNavigate();
     const [showScrollTop, setShowScrollTop] = useState(false);
-    const [isVisible, setIsVisible] = useState(false);
+    const [titleVisible, setTitleVisible] = useState(false);
+    const [carouselVisible, setCarouselVisible] = useState(false);
+    const [contentVisible, setContentVisible] = useState(false);
     const [animateCards, setAnimateCards] = useState(false);
+    const pageRef = useRef(null);
 
-    // Reset animation state when component mounts
+    // Initial load animations
     useEffect(() => {
-        setAnimateCards(false);
-    }, []);
+        // Trigger animations on component mount
+        setTimeout(() => setTitleVisible(true), 200);
+        setTimeout(() => setCarouselVisible(true), 600);
+        setTimeout(() => setContentVisible(true), 1000);
+        setTimeout(() => setAnimateCards(true), 1400);
+    }, []); // Empty dependency array means this runs once on mount
 
     useEffect(() => {
-        // Initial animations on mount
-        setIsVisible(true);
-
         const handleScroll = () => {
             // Scroll to top button visibility
             if (window.pageYOffset > 300) {
                 setShowScrollTop(true);
             } else {
                 setShowScrollTop(false);
+            }
+
+            // Keep animation states when scrolling to maintain visibility
+            if (pageRef.current) {
+                const rect = pageRef.current.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Check if component is visible
+                const isInView = rect.top < windowHeight && rect.bottom > 0;
+                
+                // Only reset animations if completely out of view
+                if (!isInView) {
+                    setTitleVisible(false);
+                    setCarouselVisible(false);
+                    setContentVisible(false);
+                    setAnimateCards(false);
+                }
             }
 
             // Animate cards on scroll
@@ -156,10 +177,12 @@ const ContactVault = () => {
     return (
         <>
         <Navbar />
-        <div className="min-h-screen bg-white py-16 p-2 md:p-4">
+        <div className="min-h-screen bg-white py-16 p-2 md:p-4" ref={pageRef}>
             <div className="mx-2 md:mx-4">
                 {/* Carousel Container */}
-                <div className={`w-full transition-opacity duration-1000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+                <div className={`w-full transition-all duration-1000 ease-out transform ${
+                    carouselVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+                }`}>
                     {/* Main Carousel */}
                     <div className="relative group">
                         {/* Carousel Wrapper */}
@@ -604,6 +627,7 @@ const ContactVault = () => {
                 </button>
             )}
         </div>
+        <Footer />
         </>
     );
 };
