@@ -1,13 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+
 const Resume = () => {
   const [titleVisible, setTitleVisible] = useState(false)
   const [contentVisible, setContentVisible] = useState(false)
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const resumeRef = useRef(null)
 
   useEffect(() => {
+    // Check if device is mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+
     const handleScroll = () => {
       // Scroll to top button visibility
       if (window.pageYOffset > 300) {
@@ -39,7 +49,10 @@ const Resume = () => {
     handleScroll()
     
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', checkMobile)
+    }
   }, [])
 
   return (
@@ -131,39 +144,43 @@ const Resume = () => {
           </a>
         </div>
 
-        {/* PDF Viewer Card */}
-        <div className={`relative group transform transition-all duration-1000 ease-out ${
-          contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
-        }`}>
-          {/* 3D Shadow Card */}
-          <div 
-            className="bg-blue-800 absolute rounded-none group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-700 ease-out"
-            style={{
-              top: '12px',
-              left: '12px',
-              right: '-12px',
-              bottom: '-12px',
-              zIndex: -1
-            }}
-          ></div>
+        {/* PDF Viewer Card - Only show on desktop */}
+        {!isMobile && (
+          <div className={`relative group transform transition-all duration-1000 ease-out ${
+            contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+          }`}>
+            {/* 3D Shadow Card */}
+            <div 
+              className="bg-blue-800 absolute rounded-none group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-700 ease-out"
+              style={{
+                top: '12px',
+                left: '12px',
+                right: '-12px',
+                bottom: '-12px',
+                zIndex: -1
+              }}
+            ></div>
 
-          {/* Main Content Card */}
-          <div 
-            className="bg-white rounded-none p-6 text-blue-800 border-4 border-blue-800
-              relative overflow-hidden w-full max-w-none"
-            style={{
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.1), 0 0 0 4px #1e40af'
-            }}
-          >
-            <object
-              data="/param_main_resume.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&view=FitH"
-              type="application/pdf"
-              className="w-full h-[800px]"
+            {/* Main Content Card */}
+            <div 
+              className="bg-white rounded-none p-6 text-blue-800 border-4 border-blue-800
+                relative overflow-hidden w-full max-w-none"
+              style={{
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.1), 0 0 0 4px #1e40af'
+              }}
             >
-              <p>Your browser doesn't support PDF viewing.</p>
-            </object>
+              <object
+                data="/param_main_resume.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&view=FitH"
+                type="application/pdf"
+                className="w-full h-[800px]"
+              >
+                <p>Your browser doesn't support PDF viewing.</p>
+              </object>
+            </div>
           </div>
-        </div>
+        )}
+
+
       </div>
     </div>
     {/* Scroll to Top Button */}
