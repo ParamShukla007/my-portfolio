@@ -109,7 +109,7 @@ const Navbar = () => {
               <FileText className="w-4 h-4" />
               <span>RESUME</span>
             </Link>
-            <Link href="/minimal" className="flex items-center space-x-2 text-white text-sm font-bold tracking-wider hover:opacity-80 transition-opacity">
+            <Link to="/minimal" className="flex items-center space-x-2 text-white text-sm font-bold tracking-wider hover:opacity-80 transition-opacity">
               <FileText className="w-4 h-4" />
               <span>MINIMAL</span>
             </Link>
