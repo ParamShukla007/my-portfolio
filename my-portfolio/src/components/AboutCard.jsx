@@ -1,71 +1,42 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 
-const AboutCard = () => {
-  const [titleVisible, setTitleVisible] = useState(false);
-  const [contentVisible, setContentVisible] = useState(false);
-  const aboutCardRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (aboutCardRef.current) {
-        const rect = aboutCardRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        const isInView = rect.top < windowHeight * 0.7 && rect.bottom > windowHeight * 0.3;
-        
-        if (isInView) {
-          setTimeout(() => setTitleVisible(true), 200);
-          setTimeout(() => setContentVisible(true), 600);
-        }
-      }
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+const PortfolioHero = () => {
   return (
-    <div className="w-full" ref={aboutCardRef}>
-      <div className="flex flex-col md:flex-row">
-        {/* Image placeholder section */}
-        <div className={`w-full md:w-1/2 h-screen transform transition-all duration-1000 ${
-          titleVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
-        }`}>
-          <div className="h-[48rem] w-full relative">
-            <div className="absolute inset-0 bg-blue-800/90 mix-blend-multiply z-10"></div>
+    <div className="min-h-screen bg-white flex">
+      {/* Left Section - Content */}
+      <div className="w-1/2 flex flex-col justify-center px-16 py-16 bg-white">
+       
+        
+        {/* Main Content */}
+        <div className="space-y-8">
+          <h2 className="text-5xl font-bold text-blue-800 leading-tight">
+            Part Time Developer<br />
+            Full-Time Builder & Learner
+          </h2>
+          
+          <p className="text-blue-800 text-lg leading-relaxed max-w-md">
+            Craving to build innovative solutions that make an impact. Enthusiastic problem solver, always curious about new technologies. Committed to continuous learning and growth.
+          </p>
+          
+          <button className="bg-blue-800 text-white px-8 py-3 font-medium hover:bg-blue-900 transition-colors duration-200">
+            Let's Connect
+          </button>
+        </div>
+      </div>
+      
+      {/* Right Section - Image and Navigation */}
+      <div className="w-1/2 bg-blue-800 relative">
+       
+        
+        {/* Profile Image Container */}
+        <div className="flex items-center justify-center h-full p-8">
+          <div className="bg-white border border-white border-8 overflow-hidden shadow-2xl max-w-lg w-full">
+            {/* Profile Image */}
             <img 
               src="/paramsh1.jpg" 
-              alt="Param Shukla"
-              className="h-full w-full object-cover relative"
+              alt="Profile" 
+              className="w-full h-full object-cover aspect-[3/4]"
             />
-          </div>
-        </div>
-        
-        {/* Content section with heading and description */}
-        <div className="w-full md:w-1/2 pt-8 px-8 flex flex-col">
-           <div className={`transform transition-all duration-1000 ${
-            titleVisible ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
-           }`}>
-                  <h1 className="text-5xl md:text-7xl font-bold text-blue-800 mb-4">
-                    PARAM SHUKLA
-                  </h1>
-                  <h2 className="text-2xl md:text-3xl font-bold text-blue-800">
-                    A passionate final year Computer Engineering Student based in 
-                    Mumbai
-                  </h2>
-                </div>
-          <div className={`space-y-6 mt-16 transform transition-all duration-1000 delay-300 ${
-            contentVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
-          }`}>
-            <p className="text-xl text-blue-800 leading-relaxed font-bold">
-              From the very beginning, I’ve been passionate about creating things. I’ve always seen myself as a builder—someone whose work should reflect who they are. Early on, I learned that engineers are creators, and that realization made engineering feel like the perfect fit for me.
-            </p>
-            <p className="text-xl text-blue-800 leading-relaxed font-bold">
-              Since then, I’ve developed a variety of applications—from financial literacy app to NGO management platforms—exploring ideas that have real-world impact. I’ve worked across different tech stacks, often learning by doing: building, breaking, debugging, and growing through the process. Participating in numerous hackathons taught me the importance of teamwork, fast learning, and problem-solving under pressure.
-            </p>
-            <p className="text-xl text-blue-800 leading-relaxed font-bold">
-             Alongside hands-on projects, I’ve also built a strong foundation in core computer science subjects such as Data Structures, Operating Systems, OOPs, Networks, and Database Management. I’m always eager to help others and just as open to learning from them. Ultimately, I’m driven by the goal of creating solutions that improve lives and make the world a little easier for everyone.
-            </p>
           </div>
         </div>
       </div>
@@ -73,4 +44,4 @@ const AboutCard = () => {
   );
 };
 
-export default AboutCard;
+export default PortfolioHero;
