@@ -141,6 +141,32 @@ const MoneyOverflow = () => {
         }
     };
 
+    const desktopImages = [
+        '/moneyoverflow/mo1.jpg',
+        '/moneyoverflow/mo2.jpg',
+        '/moneyoverflow/mo3.jpg',
+        '/moneyoverflow/mo4.jpg',
+        '/moneyoverflow/mo5.jpg',
+        '/moneyoverflow/mo6.jpg',
+        '/moneyoverflow/mo7.jpg',
+        '/moneyoverflow/mo8.jpg',
+        '/moneyoverflow/mo9.jpg',
+        '/moneyoverflow/mo10.jpg',
+    ];
+
+    const mobileImages = [
+        '/moneyoverflow/mm1mob.jpg',
+        '/moneyoverflow/mm2mob.jpg',
+        '/moneyoverflow/mm3mob.jpg',
+        '/moneyoverflow/mm4mob.jpg',
+        '/moneyoverflow/mm5mob.jpg',
+        '/moneyoverflow/mm6mob.jpg',
+        '/moneyoverflow/mm7mob.jpg',
+        '/moneyoverflow/mm8mob.jpg',
+        '/moneyoverflow/mm9mob.jpg', // Reusing first mobile image for 9th slide
+        '/moneyoverflow/mm10mob.jpg', // Reusing second mobile image for 10th slide
+    ];
+
     const cards = [
         projectData.aboutProject,
         projectData.keyFeatures,
@@ -157,16 +183,16 @@ const MoneyOverflow = () => {
   ]
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    // Auto-slide functionality for cards
+    // Auto-slide functionality for images
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => 
-                prevIndex === cards.length - 1 ? 0 : prevIndex + 1
+                prevIndex === desktopImages.length - 1 ? 0 : prevIndex + 1
             );
-        }, 6000); // Change card every 6 seconds
+        }, 6000); // Change image every 6 seconds
 
         return () => clearInterval(interval);
-    }, [cards.length]);
+    }, [desktopImages.length]);
 
     // Handle dot click
     const goToSlide = (index) => {
@@ -175,11 +201,11 @@ const MoneyOverflow = () => {
 
     // Handle previous/next buttons
     const goToPrevious = () => {
-        setCurrentIndex(currentIndex === 0 ? cards.length - 1 : currentIndex - 1);
+        setCurrentIndex(currentIndex === 0 ? desktopImages.length - 1 : currentIndex - 1);
     };
 
     const goToNext = () => {
-        setCurrentIndex(currentIndex === cards.length - 1 ? 0 : currentIndex + 1);
+        setCurrentIndex(currentIndex === desktopImages.length - 1 ? 0 : currentIndex + 1);
     };
 
     return (
@@ -194,28 +220,34 @@ const MoneyOverflow = () => {
                     {/* Main Carousel */}
                     <div className="relative group">
                         {/* Carousel Wrapper */}
-                        <div className="relative w-full h-80 md:h-[24rem] lg:h-[32rem] overflow-hidden bg-blue-50 rounded-none shadow-2xl">
-                            {/* Images/Placeholder content */}
+                        <div className="relative w-full h-[38rem] md:h-[42rem] lg:h-[45rem] overflow-hidden bg-blue-50 rounded-none shadow-2xl border-4 border-blue-800">
+                            {/* Images carousel */}
                             <div 
                                 className="flex transition-transform duration-500 ease-in-out h-full"
                                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                             >
-                                {cards.map((card, index) => (
+                                {desktopImages.map((desktopImage, index) => (
                                     <div
-                                        key={card.id}
-                                        className="w-full h-full flex-shrink-0 relative"
+                                        key={index}
+                                        className="w-full h-full flex-shrink-0 relative flex items-center justify-center"
                                     >
-                                        <div className="w-full h-full bg-blue-100 flex items-center justify-center">
-                                            {/* Placeholder content - replace with actual images */}
-                                            <div className="text-center">
-                                                <div className="text-blue-400 text-4xl md:text-6xl font-black opacity-30 mb-2 md:mb-4">
-                                                    {String(index + 1).padStart(2, '0')}
-                                                </div>
-                                                <p className="text-blue-600 font-medium text-sm md:text-lg px-4">
-                                                    {card.title}
-                                                </p>
-                                            </div>
-                                        </div>
+                                        <picture>
+                                            {/* Mobile image */}
+                                            <source
+                                                media="(max-width: 768px)"
+                                                srcSet={mobileImages[index]}
+                                            />
+                                            {/* Desktop image */}
+                                            <source
+                                                media="(min-width: 769px)"
+                                                srcSet={desktopImage}
+                                            />
+                                            <img 
+                                                src={desktopImage}
+                                                alt={`Money Overflow ${index + 1}`}
+                                                className="h-full md:w-full md:h-full object-contain md:object-cover bg-blue-50"
+                                            />
+                                        </picture>
                                     </div>
                                 ))}
                             </div>
@@ -243,14 +275,14 @@ const MoneyOverflow = () => {
                             <div className="absolute bottom-0 left-0 w-full h-1 bg-blue-200">
                                 <div 
                                     className="h-full bg-blue-800 transition-all duration-300"
-                                    style={{ width: `${((currentIndex + 1) / cards.length) * 100}%` }}
+                                    style={{ width: `${((currentIndex + 1) / desktopImages.length) * 100}%` }}
                                 ></div>
                             </div>
                         </div>
 
                         {/* Navigation Dots */}
-                        <div className="flex justify-center space-x-3 mt-6">
-                            {cards.map((_, index) => (
+                        <div className="flex justify-center space-x-3 mt-6 flex-wrap gap-y-2">
+                            {desktopImages.map((_, index) => (
                                 <button
                                     key={index}
                                     onClick={() => goToSlide(index)}
@@ -267,7 +299,7 @@ const MoneyOverflow = () => {
                         {/* Slide Counter */}
                         <div className="text-center mt-4">
                             <span className="text-blue-600 font-medium text-sm">
-                                {currentIndex + 1} / {cards.length}
+                                {currentIndex + 1} / {desktopImages.length}
                             </span>
                         </div>
                     </div>
