@@ -122,7 +122,7 @@ const Resume = () => {
           contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
         }`}>
           <a
-            href="/param_main_resume.pdf"
+            href="/paramshukla_resume (1).pdf"
             download
             className="flex items-center justify-center gap-2 bg-blue-800 text-white px-8 py-3 font-bold text-sm tracking-wider transform transition-all duration-700 ease-out hover:-translate-y-1 hover:shadow-lg"
           >
@@ -132,7 +132,7 @@ const Resume = () => {
             Download PDF Resume
           </a>
           <a
-            href="https://drive.google.com/file/d/1t3mYHX1gA9sSzsGb3lAmsANF916gSL2w/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1J5ERwlD9-y4c4s7O0EvCQ20SKsxpn8Xb/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 bg-blue-800 text-white px-8 py-3 font-bold text-sm tracking-wider transform transition-all duration-700 ease-out hover:-translate-y-1 hover:shadow-lg"
@@ -170,7 +170,7 @@ const Resume = () => {
               }}
             >
               <object
-                data="/param_main_resume.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&view=FitH"
+                data="/paramshukla_resume (1).pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&view=FitH"
                 type="application/pdf"
                 className="w-full h-[800px]"
               >
