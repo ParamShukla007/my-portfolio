@@ -157,7 +157,7 @@ const MonilCard = () => {
                   </div>
                   <div className="flex items-center gap-3">
                     <FaInstagram className="text-2xl text-blue-800" />
-                    <a href="https://www.instagram.com/shuklaparam9/?igsh=MWZrMzczZmdrd20ydg%3D%3D#" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 text-lg">
+                    <a href="https://www.instagram.com/shuklaparam9" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 text-lg">
                       @shuklaparam9
                     </a>
                   </div>
