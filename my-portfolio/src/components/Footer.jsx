@@ -145,7 +145,6 @@ export default function Footer() {
             <h3 className="text-lg md:text-xl font-bold mb-4 md:mb-6 text-white tracking-wider" style={{ fontFamily: 'Peter Sans, sans-serif' }}>EXPLORE</h3>
             <nav className="space-y-2 md:space-y-3" style={{ fontFamily: 'Peter Sans, sans-serif' }}>
               <Link to="/" className="block text-gray-300 hover:text-white transition-colors duration-300 text-sm md:text-base">Home</Link>
-              <Link to="/about" className="block text-gray-300 hover:text-white transition-colors duration-300 text-sm md:text-base">About</Link>
               <button 
                 onClick={() => scrollToSection('projects')}
                 className="block text-gray-300 hover:text-white transition-colors duration-300 text-sm md:text-base text-left"

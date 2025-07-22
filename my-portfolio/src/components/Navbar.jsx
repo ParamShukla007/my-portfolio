@@ -87,10 +87,6 @@ const Navbar = () => {
               <IoHomeOutline className="w-4 h-4" />
               <span>HOME</span>
             </Link>
-            <a href="#" className="flex items-center space-x-2 text-white text-sm font-bold tracking-wider hover:opacity-80 transition-opacity">
-              <User className="w-4 h-4" />
-              <span>ABOUT</span>
-            </a>
             <button 
               onClick={() => scrollToSection('projects')}
               className="flex items-center space-x-2 text-white text-sm font-bold tracking-wider hover:opacity-80 transition-opacity cursor-pointer"
@@ -178,14 +174,6 @@ const Navbar = () => {
               <IoHomeOutline className="w-5 h-5" />
               <span>HOME</span>
             </Link>
-            <a 
-              href="#" 
-              className="flex items-center space-x-4 text-white text-base font-bold tracking-wider py-3 hover:opacity-80 transition-opacity border-b border-blue-600"
-              onClick={() => setIsOpen(false)}
-            >
-              <User className="w-5 h-5" />
-              <span>ABOUT</span>
-            </a>
             <button 
               onClick={() => scrollToSection('projects')}
               className="w-full flex items-center space-x-4 text-white text-base font-bold tracking-wider py-3 hover:opacity-80 transition-opacity border-b border-blue-600"

@@ -135,7 +135,7 @@ const ContactMe = () => {
             {/* Image Placeholder */}
             <div className="w-full h-80 lg:h-[32rem] bg-gray-200 border-4 border-blue-800 overflow-hidden mb-8">
   <img 
-    src="/paramsh2.jpg" 
+    src="/param_lego2.png" 
     alt="Description of your image"
     className="w-full h-full object-cover"
   />
