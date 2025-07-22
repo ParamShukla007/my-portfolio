@@ -327,7 +327,7 @@ const SkillCard = () => {
             ? 'opacity-100 translate-y-0' 
             : 'opacity-0 translate-y-12'
         }`}>
-          Skills that I have built brick by brick 
+          Skills that I have built block by block
         </p>
       </div>
 
