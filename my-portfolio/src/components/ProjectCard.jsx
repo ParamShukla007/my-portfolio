@@ -32,7 +32,7 @@ const ProjectCard = () => {
       title: "Money Overflow",
       subtitle: "FULL-STACK PLATFORM",
       description: "MoneyOverflow is a comprehensive financial literacy platform developed using React.js for the frontend and Node.js, Express.js, and Mongoose on the backend. The platform offers interactive learning modules, financial blogs, real-time news updates, built-in calculators, and a vibrant community-driven Q&A system to promote financial awareness and knowledge sharing. To enhance user engagement, we integrated gamified quizzes and investment simulations that allow users to test and apply their understanding in a practical context. Additionally, the platform features an AI-powered assistant built using the Gemini API, which provides personalized financial query resolution and learning guidance. The entire application is designed to be fully mobile responsive, ensuring a smooth and consistent experience across all devices. This project emphasizes accessibility, interactivity, and personalization in financial education.",
-      image: "/api/placeholder/300/200",
+      image: "/mockups/mock1.png",
       tags: ["React.js", "Node.js", "Express.js", "Mongoose", "MongoDB"],
       additionalTags: ["Financial Literacy"],
       liveDemo: "https://moneyoverflow.vercel.app/",
@@ -48,7 +48,7 @@ const ProjectCard = () => {
       title: "Nurture Nest",
       subtitle: "FULL-STACK",
       description: "NurtureNest is a full-stack NGO management platform designed to streamline operations for both administrators and users. The platform features a comprehensive admin portal that enables administrators to create and manage events and projects, track staff and volunteer data, view detailed donation analytics through interactive charts, and generate event reports in PDF format. It includes secure payment integration using Razorpay for donations and volunteering contributions. Automated SMS notifications are sent to users upon registration via Twilio API. On the user side, individuals can browse and participate in events and projects, make donations, and view important messages shared by the admin. The platform also offers a responsive and user-friendly interface, ensuring a seamless experience across devices.",
-      image: "/api/placeholder/300/200",
+      image: "/mockups/mock2.png",
       tags: ["React.js", "Node.js", "Express.js", "Mongoose", "MongoDB"],
       additionalTags: ["NGO Management"],
       liveDemo: "https://nfc-3-0-hack-panthers.vercel.app/",
@@ -64,7 +64,7 @@ const ProjectCard = () => {
       title: "Contact Vault",
       subtitle: "FULL-STACK",
       description: "Contact Vault is a full-stack contact management system that I built using Spring Boot and WebSocket, focused on delivering secure contact storage and real-time communication. The backend is powered by Spring Boot and Spring Security for robust authentication and authorization, with Spring Data JPA and MySQL handling data persistence. Real-time messaging is implemented using WebSocket with STOMP and SockJS. User passwords are securely hashed using BCrypt. On the frontend, I used Thymeleaf for server-side rendering and Tailwind CSS to design a responsive, clean, and user-friendly interface. The application allows users to securely store, edit, and delete their contacts, update their profiles, and engage in real-time chat. I integrated Cloudinary to manage user profile photos in the cloud, added pagination to optimize page performance by reducing load time, and implemented a dynamic search functionality for easy contact filtering. MySQL Workbench was used for efficient database design and management. Deployed using Docker and Render.",
-      image: "/api/placeholder/300/200",
+      image: "/mockups/mock4.png",
       tags: ["Spring Boot", "Spring Security", "Spring Data JPA", "MySQL", "Thymeleaf", "WebSocket", "Docker"],
       additionalTags: ["Contact Management"],
       liveDemo: "https://contact-vault.onrender.com",
@@ -147,9 +147,11 @@ const ProjectCard = () => {
                   {/* Image - First on mobile, left/right on desktop based on card color */}
                   <div className={`w-full md:w-96 lg:w-[550px] flex-shrink-0 order-1 ${card.isBlue ? 'md:order-1' : 'md:order-2'}`}>
                     <div className={`${card.isBlue ? 'bg-white' : 'bg-blue-50'} rounded-none overflow-hidden aspect-video md:aspect-square group-hover:scale-105 transition-transform duration-500`}>
-                      <div className={`w-full h-full flex items-center justify-center ${card.isBlue ? 'bg-blue-50' : 'bg-blue-100'}`}>
-                        <div className="text-blue-400 text-6xl md:text-8xl lg:text-9xl font-black opacity-30">PS</div>
-                      </div>
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
 

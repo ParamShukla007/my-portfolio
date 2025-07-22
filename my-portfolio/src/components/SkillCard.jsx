@@ -215,11 +215,18 @@ const SkillCard = () => {
           >
             {/* Piano Key Effect */}
             <div className="absolute inset-0 bg-white transition-all duration-300 ease-out group-hover:translate-y-1 group-hover:shadow-inner">
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-b from-white to-transparent"></div>
-              <div className="absolute top-0 left-0 bottom-0 w-0.5 bg-gradient-to-r from-white to-transparent"></div>
+              {/* Primary highlights */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-b from-white via-gray-50 to-transparent opacity-80"></div>
+              <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-to-r from-white via-gray-50 to-transparent opacity-80"></div>
+              {/* Secondary highlights */}
+              <div className="absolute top-[2px] left-[2px] right-0 h-0.5 bg-gradient-to-b from-white to-transparent opacity-60"></div>
+              <div className="absolute top-[2px] left-[2px] bottom-0 w-0.5 bg-gradient-to-r from-white to-transparent opacity-60"></div>
+              {/* Additional subtle highlights */}
+              <div className="absolute top-1 left-0 right-0 h-[1px] bg-gradient-to-b from-gray-50 to-transparent opacity-40"></div>
+              <div className="absolute top-0 left-1 bottom-0 w-[1px] bg-gradient-to-r from-gray-50 to-transparent opacity-40"></div>
             </div>
 
-            <div className="absolute inset-0 bg-gradient-to-br from-white to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
 
             <div className="relative w-full h-full flex flex-col items-center justify-center text-center p-1 transition-all duration-300 ease-out group-hover:translate-y-0.5">
               {skill.icon && (
@@ -272,11 +279,18 @@ const SkillCard = () => {
             }}
           >
             <div className="absolute inset-0 bg-white transition-all duration-300 ease-out group-hover:translate-y-1 group-hover:shadow-inner">
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-b from-white to-transparent"></div>
-              <div className="absolute top-0 left-0 bottom-0 w-0.5 bg-gradient-to-r from-white to-transparent"></div>
+              {/* Primary highlights */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-b from-white via-gray-50 to-transparent opacity-80"></div>
+              <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-to-r from-white via-gray-50 to-transparent opacity-80"></div>
+              {/* Secondary highlights */}
+              <div className="absolute top-[2px] left-[2px] right-0 h-0.5 bg-gradient-to-b from-white to-transparent opacity-60"></div>
+              <div className="absolute top-[2px] left-[2px] bottom-0 w-0.5 bg-gradient-to-r from-white to-transparent opacity-60"></div>
+              {/* Additional subtle highlights */}
+              <div className="absolute top-1 left-0 right-0 h-[1px] bg-gradient-to-b from-gray-50 to-transparent opacity-40"></div>
+              <div className="absolute top-0 left-1 bottom-0 w-[1px] bg-gradient-to-r from-gray-50 to-transparent opacity-40"></div>
             </div>
 
-            <div className="absolute inset-0 bg-gradient-to-br from-white to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></div>
 
             <div className="relative w-full h-full flex flex-col items-center justify-center text-center p-1 sm:p-2 md:p-3 transition-all duration-300 ease-out group-hover:translate-y-0.5">
               {skill.icon && (
