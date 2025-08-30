@@ -115,7 +115,7 @@ const MonilCard = () => {
                 }`}>
                 <h3 className="text-3xl font-bold text-blue-800 mb-5">Resume</h3>
                 <a 
-                  href="/paramshukla_resume (1).pdf" 
+                  href="/param_september_resume.pdf" 
                   className="inline-block bg-blue-800 text-white px-10 py-5 rounded-none hover:bg-blue-700 transition-colors text-xl font-semibold shadow-lg hover:shadow-xl"
                   download
                 >
