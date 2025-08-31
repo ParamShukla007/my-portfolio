@@ -132,7 +132,7 @@ const Resume = () => {
             Download PDF Resume
           </a>
           <a
-            href="https://drive.google.com/file/d/1uimMDc9uRJnfenGQtUV46vvS7OOifl5a/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1gE8CTgcZ5zyVTwYHnzhDnjAEz4UVEDrt/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 bg-blue-800 text-white px-8 py-3 font-bold text-sm tracking-wider transform transition-all duration-700 ease-out hover:-translate-y-1 hover:shadow-lg"
