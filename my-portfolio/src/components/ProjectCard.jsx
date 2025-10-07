@@ -67,7 +67,7 @@ const ProjectCard = () => {
       image: "/mockups/mock4.png",
       tags: ["Spring Boot", "Spring Security", "Spring Data JPA", "MySQL", "Thymeleaf", "WebSocket", "Docker"],
       additionalTags: ["Contact Management"],
-      liveDemo: "https://contact-vault.onrender.com",
+      liveDemo: "https://employee-management-v2-1.onrender.com",
       codeLink: "https://github.com/ParamShukla007/PRODIGY_FS_04",
       detailsLink: "/projects/contactvault",
       timeline: "May 2025 - June 2025",
