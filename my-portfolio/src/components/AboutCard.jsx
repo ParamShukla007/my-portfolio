@@ -118,24 +118,6 @@ const PortfolioHero = () => {
               <FaWhatsapp size={24} />
             </a>
             <a 
-              href="https://x.com/ParamShukla8" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-blue-800 p-3 rounded-full transition-all duration-300 ease-out transform hover:scale-110 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-800/30 hover:bg-gradient-to-br hover:from-blue-50 hover:to-blue-100 hover:text-blue-900 active:scale-95"
-              style={{
-                transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg)',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'perspective(1000px) rotateX(-10deg) rotateY(10deg) translateZ(20px) scale(1.1) translateY(-8px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale(1) translateY(0px)';
-              }}
-            >
-              <RiTwitterXFill size={24} />
-            </a>
-            <a 
               href="https://www.instagram.com/shuklaparam9" 
               target="_blank" 
               rel="noopener noreferrer"
