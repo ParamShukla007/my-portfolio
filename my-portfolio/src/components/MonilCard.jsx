@@ -150,12 +150,6 @@ const MonilCard = () => {
                     </a>
                   </div>
                   <div className="flex items-center gap-3">
-                    <RiTwitterXFill className="text-2xl text-blue-800" />
-                    <a href="https://x.com/ParamShukla8" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 text-lg">
-                      @ParamShukla8
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3">
                     <FaInstagram className="text-2xl text-blue-800" />
                     <a href="https://www.instagram.com/shuklaparam9" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 text-lg">
                       @shuklaparam9
